@@ -1,3 +1,10 @@
+/*
+ *  SkipList implementation
+ *  History:
+ *  2017-12-23   Initial Created
+ *  TODO: add iterator support
+ *
+ */
 #ifndef SKIPLIST_H_
 #define SKIPLIST_H_
 
