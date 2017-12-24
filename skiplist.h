@@ -1,5 +1,6 @@
 /*
  *  SkipList implementation
+ *  Reference: http://opendatastructures.org/ods-cpp/4_Skiplists.html
  *  History:
  *  2017-12-23   Initial Created
  *  TODO: add iterator support
