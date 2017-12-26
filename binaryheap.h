@@ -32,12 +32,11 @@ namespace wangbb
 
 	    void trickleDown(int i)
 	    {
-	        int n = size();
 	        do
 	        {
 		        int j = -1;
 		        int r = right(i);
-		        if (r < n && arr[r] < arr[i])
+		        if (r < size() && arr[r] < arr[i])
 		        {
 			        int l = left(i);
 			        if (arr[l] < arr[r])
@@ -52,7 +51,7 @@ namespace wangbb
 		        else
 		        {
 			        int l = left(i);
-			        if (l < n && arr[l] < arr[i])
+			        if (l < size() && arr[l] < arr[i])
 			        {
 				        j = l;
 			        }
@@ -116,7 +115,7 @@ namespace wangbb
 	    {
 	        T x = arr[0];
 	        arr[0] = arr[size()-1];
-	        arr.erase(arr.rbegin());
+	        arr.pop_back();
 	        trickleDown(0);
 	        return x;
 	    }

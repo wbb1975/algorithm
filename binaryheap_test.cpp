@@ -18,13 +18,12 @@ int main()
     vals.push_back(39);
     vals.push_back(64);
 
-    BinaryMinHeap<int>::sort(vals);
-    cout << " sorted val: " << endl;
-    for (auto it = vals.begin(); it != vals.end(); ++it)
+    BinaryMinHeap<int> minHeap(vals);
+    cout << "Data in memory:" << endl;
+    while (minHeap.size())
     {
-        cout << *it << endl;
+        cout << minHeap.remove() << endl;
     }
-
 
     return 0;
 }
