@@ -18,11 +18,21 @@ int main()
     vals.push_back(39);
     vals.push_back(64);
 
+    vector<int>         vals2 = vals;
+
     BinaryMinHeap<int> minHeap(vals);
-    cout << "Data in memory:" << endl;
+    cout << "Data extraction from heap:" << endl;
     while (minHeap.size())
     {
         cout << minHeap.remove() << endl;
+    }
+
+    vals2.push_back(33);
+    BinaryMinHeap<int>::sort(vals2);
+    cout << "sorted vectors: " << endl;
+    for (auto it = vals2.begin(); it != vals2.end(); ++it)
+    {
+        cout << *it <<endl;
     }
 
     return 0;

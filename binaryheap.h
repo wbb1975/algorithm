@@ -30,13 +30,13 @@ namespace wangbb
 	        }
         }
 
-	    void trickleDown(int i)
+	    void trickleDown(int i, int size)
 	    {
 	        do
 	        {
 		        int j = -1;
 		        int r = right(i);
-		        if (r < size() && arr[r] < arr[i])
+		        if (r < size && arr[r] < arr[i])
 		        {
 			        int l = left(i);
 			        if (arr[l] < arr[r])
@@ -51,7 +51,7 @@ namespace wangbb
 		        else
 		        {
 			        int l = left(i);
-			        if (l < size() && arr[l] < arr[i])
+			        if (l < size && arr[l] < arr[i])
 			        {
 				        j = l;
 			        }
@@ -86,7 +86,7 @@ namespace wangbb
 	        arr.assign(pArr, pArr + size);
             for (int i = size/2 - 1; i >= 0; --i)
             {
-                trickleDown(i);
+                trickleDown(i, size);
             }
 	    }
 	    BinaryMinHeap(const std::vector<T> &vec)
@@ -94,7 +94,7 @@ namespace wangbb
 	        arr = vec;
             for (int i = size()/2 - 1; i >= 0; --i)
             {
-                trickleDown(i);
+                trickleDown(i, size());
             }
 	    }
 	    virtual ~BinaryMinHeap()
@@ -116,7 +116,7 @@ namespace wangbb
 	        T x = arr[0];
 	        arr[0] = arr[size()-1];
 	        arr.pop_back();
-	        trickleDown(0);
+	        trickleDown(0, size());
 	        return x;
 	    }
 	    int size()
@@ -131,9 +131,10 @@ namespace wangbb
 	        while (size > 1)
 	        {
 		        std::swap(heap.arr[--size], heap.arr[0]);
-		        heap.trickleDown(0);
+		        heap.trickleDown(0, size);
             }
-            vals.swap(heap.arr);
+            vals = heap.arr;
+            std::reverse(vals.begin(), vals.end());
 	    }
 
 	    // just for debugging
